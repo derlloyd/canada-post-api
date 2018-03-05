@@ -42,8 +42,9 @@ export default class App extends Component {
             <Text>{this.state.address.street}</Text>
             <Text>{this.state.address.street2}</Text>
             <Text>{this.state.address.city}</Text>
-            <Text>{this.state.address.postcode}</Text>
             <Text>{this.state.address.prov}</Text>
+            <Text>{this.state.address.postcode}</Text>
+            <Text>{this.state.address.country}</Text>
           </View>
         )}
 

@@ -85,7 +85,6 @@
 
         var fields = [
             { element: "street-address", field: "Line1" },
-            { element: "street-address1", field: "Line1", mode: pca.fieldMode.POPULATE },
             { element: "street-address2", field: "Line2", mode: pca.fieldMode.POPULATE },
             { element: "city", field: "City", mode: pca.fieldMode.POPULATE },
             { element: "state", field: "ProvinceName", mode: pca.fieldMode.POPULATE },
@@ -93,10 +92,9 @@
             { element: "country", field: "CountryName", mode: pca.fieldMode.COUNTRY }
         ]
 
+        // insert api key here and in head script
         options = {
             key: "PN62-AK87-NW16-FE16",
-            // autoSearch: true,
-            // prompt: false,
             setCursor: true,
             setCountryByIP: true,
             culture: "en-us",
@@ -108,7 +106,7 @@
         function clickHandler() {
             var address = {
                 street: window.document.getElementById("street-address").value || "",
-                stree2: window.document.getElementById("street-address2").value || "",
+                street2: window.document.getElementById("street-address2").value || "",
                 city: window.document.getElementById("city").value || "",
                 prov: window.document.getElementById("state").value || "",
                 postcode: window.document.getElementById("postcode").value || "",

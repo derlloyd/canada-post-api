@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "my-new-project2",
+    "name": "canada-post-api",
     "description": "This project is really great.",
-    "slug": "my-new-project2",
+    "slug": "canada-post-api",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
