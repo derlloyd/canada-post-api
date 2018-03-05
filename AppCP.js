@@ -12,7 +12,7 @@ export default class App extends React.Component {
     this.onWebViewMessage = this.onWebViewMessage.bind(this);
   }
   handleDataReceived(msgData) {
-    console.log('msgdata', msgData);
+    console.log("msgdata", msgData);
     // this.setState({
     //   text2: `Message from web view ${msgData.data}`
     // });
@@ -22,24 +22,23 @@ export default class App extends React.Component {
   }
   onWebViewMessage(event) {
     // post back reply as soon as possible to enable sending the next message
-          this.myWebView.postMessage(event.nativeEvent.data);
-    
-          let msgData;
-          try {
-              msgData = JSON.parse(event.nativeEvent.data);
-          }
-          catch(err) {
-              console.warn(err);
-              return;
-          }
-    
-          // invoke target function
-          const response = this[msgData.targetFunc].apply(this, [msgData]);
-          // trigger success callback
-          msgData.isSuccessfull = true;
-          msgData.args = [response];
-          this.myWebView.postMessage(JSON.stringify(msgData))
+    this.myWebView.postMessage(event.nativeEvent.data);
+
+    let msgData;
+    try {
+      msgData = JSON.parse(event.nativeEvent.data);
+    } catch (err) {
+      console.warn(err);
+      return;
     }
+
+    // invoke target function
+    const response = this[msgData.targetFunc].apply(this, [msgData]);
+    // trigger success callback
+    msgData.isSuccessfull = true;
+    msgData.args = [response];
+    this.myWebView.postMessage(JSON.stringify(msgData));
+  }
   render() {
     let html = `
     <html>
@@ -171,11 +170,13 @@ export default class App extends React.Component {
         });
     }
     `;
-    console.log('ok');
+    console.log("ok");
     return (
       <View style={styles.container}>
         <WebView
-        ref={webview => { this.myWebView = webview; }}
+          ref={webview => {
+            this.myWebView = webview;
+          }}
           source={{ html }}
           // source={require('./form.html')}
           style={styles.webView}
@@ -183,7 +184,7 @@ export default class App extends React.Component {
           // injectedJavaScript={require('./form.js')}
           automaticallyAdjustContentInsets={true}
           // onMessage={this.onWebViewMessage}
-          onMessage={(event)=> console.log("clicked",event.nativeEvent.data)}
+          onMessage={event => console.log("clicked", event.nativeEvent.data)}
         />
         {/* <Text>Open up App.js to start working on your app!</Text> */}
       </View>

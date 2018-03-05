@@ -1,0 +1,7 @@
+canada post address api
+
+https://www.canadapost.ca/pca/support/guides/advanced
+
+https://www.canadapost.ca/pca/account/
+
+https://github.com/blankg/rn-webview-bridge-sample
