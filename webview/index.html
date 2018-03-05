@@ -3,11 +3,8 @@
 <html>
 
 <head>
-    <title>Hello Static World</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <!-- <meta name="viewport" content="width=320, user-scalable=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="webViewBridge.js"></script>
     <style type="text/css">
         body {
             display: flex;
@@ -30,11 +27,12 @@
             width: 95%;
             font-size: 120%;
         }
+
         .pca .pcatext {
-        /* font: 15px Verdana; */
-        /* color: #4682b4; */
-        width:100%;
-  }
+            /* font: 15px Verdana; */
+            /* color: #4682b4; */
+            width: 100%;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="http://ws1.postescanada-canadapost.ca/css/addresscomplete-2.00.min.css?key=PN62-AK87-NW16-FE16"
     />
@@ -46,11 +44,10 @@
     <br />
     <br />
     <div>
-        <label for="street-address">Address</label>
+        <!-- <label for="street-address">Address</label> -->
         <input id="street-address" type="text" placeholder="Start typing address..." autofocus />
     </div>
 
-    <br />
     <br />
     <br />
 
@@ -79,10 +76,10 @@
         <input id="country" type="text" placeholder="Country" />
     </div>
 
-    <!-- <input type="submit" value="Submit"> -->
+    <br />
 
     <div id="container">
-        <button id="button" onclick="clickHandler();">Send to RN</button>
+        <button id="button" onclick="clickHandler();">SUBMIT</button>
     </div>
     <script>
 
@@ -108,20 +105,7 @@
 
         control = new pca.Address(fields, options);
 
-
-
-        // addressComplete.listen('options', function (options) {
-        //     options.bar = options.bar || {};
-        //     options.bar.showCountry = true;
-        //     options.bar.showLogo = true;
-        //     options.bar.logoLink = false;
-        // });
-
-
-
-        // window.counter = 0;
         function clickHandler() {
-            // window.counter++;
             var address = {
                 street: window.document.getElementById("street-address").value || "",
                 stree2: window.document.getElementById("street-address2").value || "",
@@ -131,17 +115,9 @@
                 country: window.document.getElementById("country").value || "",
             }
 
-            // window.webViewBridge.posttoapp(address);
-
             var postmsg = JSON.stringify(address);
 
             window.postMessage(postmsg);
-                
-            // window.webViewBridge.send('handleDataReceived', window.counter, function (res) {
-            //     window.document.getElementById("button").setAttribute("style", "background-color: " + res);
-            // }, function (err) {
-            //     window.document.getElementById("container").setAttribute("style", "background-color: " + err);
-            // });
         }
     </script>
 
