@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, WebView } from "react-native";
 export default class App extends Component {
   constructor(props) {
     super(props);
-
+    // address will be set to state after submit by webview
     this.state = {
       address: null
     };
